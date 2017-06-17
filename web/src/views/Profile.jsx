@@ -4,12 +4,9 @@ import { graphql } from 'react-apollo';
 import getUserFromId from './_data/getUserFromId.graphql';
 
 class Profile extends Component {
-  state = {
-    firstname: 'Alex',
-    lastname: 'Cushing',
-  }
   render() {
     const { user, loading } = this.props.data;
+    if (loading) return null;
     return (
       <div className="profileContainer">
         <div className="userBox">
@@ -17,7 +14,7 @@ class Profile extends Component {
             <img className="userImage" src="https://www.afcinc.org/JGResources/images/user2.png" />
           </div>
           <div className="userInfo">
-            <div className="userName">{this.state.firstname} {this.state.lastname}</div>
+            <div className="userName">{user.firstname} {user.lastname}</div>
             <div className="userDescription">Web Developer :) </div>
           </div>
         </div>

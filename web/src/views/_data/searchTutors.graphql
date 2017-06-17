@@ -1,5 +1,5 @@
 query searchTutors ($query: String){
-    users {
+    users (query: $query) {
         fullName
         subjects {
             name

@@ -18,9 +18,13 @@ const Feedback = new GraphQLObjectType({
   sqlTable: 'feedback',
   uniqueKey: 'id',
   fields: () => ({
-    name: {
+    rating: {
       type: GraphQLString,
-      sqlColumn: 'name',
+      sqlColumn: 'rating',
+    },
+    body: {
+      type: GraphQLString,
+      sqlColumn: 'body',
     },
     subject: {
       type: Subject,
