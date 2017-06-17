@@ -1,9 +1,10 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
 
 const Nav = () => (
   <Menu>
-    <Menu.Item> Tutor! </Menu.Item>
+    <Link to='/'><Menu.Item> Tutor! </Menu.Item></Link>
   </Menu>
 );
 
