@@ -1,8 +1,17 @@
 query searchTutors ($query: String){
-    users (query: $query) {
-        fullName
-        subjects {
-            name
+    subject (query: $query) {
+        users {
+            fullName
+            email
+            baseRate
+            email
+            feedbackReceived {
+                body
+                rating
+            }
+            subjects {
+                name
+            }
         }
     }
 }

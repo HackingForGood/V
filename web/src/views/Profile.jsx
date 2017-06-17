@@ -14,8 +14,7 @@ class Profile extends Component {
             <img className="userImage" src="https://www.afcinc.org/JGResources/images/user2.png" />
           </div>
           <div className="userInfo">
-            <div className="userName">{user.firstname} {user.lastname}</div>
-            <div className="userDescription">Web Developer :) </div>
+            <div className="userName">{user.firstName} {user.lastName}</div>
           </div>
         </div>
       </div>

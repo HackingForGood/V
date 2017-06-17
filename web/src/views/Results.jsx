@@ -5,8 +5,8 @@ import DebouncedInput from '../components/DebouncedInput';
 
 import searchTutors from './_data/searchTutors.graphql';
 
-const Results = ({ data: { users, refetch } }) => {
-  console.log(users);
+const Results = ({ data: { subject, refetch } }) => {
+  const { users } = subject || {};
   return (
     <div>
       <DebouncedInput
@@ -15,7 +15,7 @@ const Results = ({ data: { users, refetch } }) => {
         debounceProps={{
           subscribe: ({ value }) => {
             refetch({
-              query: `${value.toLowerCase().trim()}%`,
+              query: value.trim() ? `${value.toLowerCase().trim()}%` : null,
             });
           },
         }}
