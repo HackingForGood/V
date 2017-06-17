@@ -35,7 +35,7 @@ exports.seed = async (knex) => {
     "Audio technologies",
     "Australasian studies",
     "Banking",
-    "Bioengineering, biomedical engineering & clinical engineering",,
+    "Bioengineering, biomedical engineering & clinical engineering",
     "Biological sciences",
     "Biology",
     "Biotechnologies",
@@ -245,6 +245,8 @@ exports.seed = async (knex) => {
     name: subject,
     name_slug: subject.split(' ').join(''),
   }));
+
+  console.log(subjects);
 
   await knex('subjects').insert(subjects);
 };

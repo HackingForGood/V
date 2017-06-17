@@ -24,8 +24,8 @@ const Results = ({ data: { subject, refetch } }) => {
         <div>
           <div>
             {(users) ? (
-              users.map((user) => (
-                <div>{user.fullName}</div>
+              users.map((user, index) => (
+                <div key={index}>{user.fullName}</div>
               ))
             ) : null}
           </div>

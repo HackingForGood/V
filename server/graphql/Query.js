@@ -44,12 +44,11 @@ const QueryRoot = new GraphQLObjectType({
         },
       },
       where: (subject, { query }) => {
-        console.log(query);
-        if (!query) return null;
-        return `
-          ${subject}.name ILIKE ${sqlstring.escape(query)} OR
-          ${subject}.name_slug ILIKE ${sqlstring.escape(query)}
-        `;
+        if (query) {
+          return `
+            ${subject}.name ILIKE ${sqlstring.escape(query)}
+          `;
+        }
       },
       resolve: (parent, args, context, resolveInfo) => {
         return joinMonster(resolveInfo, {}, sql => {

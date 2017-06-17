@@ -31,6 +31,10 @@ const User = new GraphQLObjectType({
       resolve: ({ first_name: firstName, last_name: lastName, }) =>
         `${capitalize(firstName)} ${capitalize(lastName)}`,
     },
+    baseRate: {
+      type: GraphQLInt,
+      sqlColumn: 'base_rate',
+    },
     firstName: {
       type: GraphQLString,
       sqlColumn: 'first_name',
