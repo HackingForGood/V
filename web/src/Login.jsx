@@ -5,8 +5,8 @@ class Login extends Component {
   
   render() {
     return (
-      <div className='login-container'>
-        <Header as='h2'>Sign In To Tutor!</Header>
+      <div className='auth-container'>
+        <Header className="auth-header" as='h2'>Sign In To Tutor!</Header>
         <Form className='login-form'>
           <Form.Field>
             <label>Email</label>

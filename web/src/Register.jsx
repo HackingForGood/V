@@ -6,8 +6,8 @@ import './auth-form.css';
 class Register extends Component {
   render() {
     return (
-      <div className='register-container'>
-        <Header as='h2'>Register For Tutor!</Header>
+      <div className='auth-container'>
+        <Header as='h2' className="auth-header">Register For Tutor!</Header>
         <Form className='register-form'>
           <Form.Field>
             <label>First Name</label>
