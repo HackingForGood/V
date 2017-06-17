@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <div>
         <div className="welcome">
-        {this.state.user.name ? <div>Welcome, {this.state.user.name}</div> : <div> Welcome to Tutor! </div>}
+        {this.state.user.name ? <div>Welcome, <span className="brand">{this.state.user.name}</span></div> : <div> Welcome to <span className="brand">Tutor!</span> </div>}
         </div>
         <Search className="customSearch" />
         {this.state.authenticated

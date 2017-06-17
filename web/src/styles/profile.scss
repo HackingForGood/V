@@ -8,6 +8,8 @@
   height: 200px;
   border: .5px solid lightgrey;
   margin: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .userImageCont {
@@ -22,4 +24,18 @@
   height: 85%;
   border-radius: 50%;
   background: #f0f0f0;
+}
+
+.userInfo {
+  flex: 1;
+  line-height: 2.5em;
+}
+
+.userName {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.userDescription {
+  font-size: 20px;
 }

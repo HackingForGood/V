@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "apollo-client": "^1.4.2",
+    "axios": "^0.16.2",
     "node-sass": "^4.5.3",
     "node-validator": "^0.1.27",
     "react": "^15.6.1",
