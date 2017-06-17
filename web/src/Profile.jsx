@@ -6,7 +6,9 @@ class Profile extends Component {
     return (
       <div className="profileContainer">
         <div className="userBox">
-          <div className="userImage"></div>
+          <div className="userImageCont">
+            <img className="userImage" />
+          </div>
           <div className="userInfo">
             <div className="userName"></div>
             <div className="userDescription"></div>

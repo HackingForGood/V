@@ -10,8 +10,16 @@
   margin: 20px;
 }
 
-.userImage {
+.userImageCont {
   width: 200px;
   height: 200px;
-  background: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userImage {
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: #f0f0f0;
 }
