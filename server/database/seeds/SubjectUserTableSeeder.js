@@ -7,7 +7,7 @@ exports.seed = async (knex) => {
   await knex('subjects_users').truncate();
 
   const subjects = [...new Array(AMT)].map(() => ({
-    subject_id: random(0, 200),
+    subject_id: random(0, 230),
     user_id: random(0, 200),
     proficiency: random(0, 10),
     rate: random(20, 50),

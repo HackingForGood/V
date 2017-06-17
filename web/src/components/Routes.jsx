@@ -1,8 +1,11 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import App from "../components/App";
 import Nav from "../components/Nav";
+import Search from '../views/Results';
+
 import Profile from "../views/Profile";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Routes = () => (
   <div>
@@ -10,7 +13,8 @@ const Routes = () => (
     <Router>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route exact path="/user/:username" component={Profile} />
+        <Route exact path="/search" component={Search} />
+        <Route exact path="/user/:id" component={Profile} />
       </Switch>
     </Router>
   </div>

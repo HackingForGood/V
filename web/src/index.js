@@ -13,7 +13,7 @@ import Routes from './components/Routes';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http:localhost:8888/graphql',
+    uri: 'http://localhost:8888/graphql',
   }),
 });
 

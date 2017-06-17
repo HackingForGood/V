@@ -1,0 +1,8 @@
+query searchTutors ($query: String){
+    users {
+        fullName
+        subjects {
+            name
+        }
+    }
+}

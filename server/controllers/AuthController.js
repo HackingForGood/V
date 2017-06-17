@@ -1,6 +1,5 @@
-import bcrypt from 'bcrypt-nodejs';
-import Promise from 'bluebird';
 import { mapKeys, snakeCase } from 'lodash';
+const Promise = require('bluebird');
 
 const hash = Promise.promisify(require('bcrypt-nodejs').hash);
 const compare = Promise.promisify(require('bcrypt-nodejs').compare);

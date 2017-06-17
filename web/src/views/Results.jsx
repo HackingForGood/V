@@ -1,20 +1,41 @@
 import React from "react";
-//import {  } from 'semantic-ui-react';
+import { graphql } from 'react-apollo';
+import { get } from 'lodash';
 
-const Results = ({ user }) => (
-  <div className="resultsContainer">
-    <div className="results">
-    {
-      Object.keys(user).length != 0 ?
-      <span className="noResults">
-        hey
-      </span> :
-      <span className="noResults">
-        No resuts :(
-      </span>
-    }
+import DebouncedInput from '../components/DebouncedInput';
+
+import searchTutors from './_data/searchTutors.graphql';
+
+const Results = ({ data: { users, refetch } }) => {
+  console.log(users);
+  return (
+    <div>
+      <DebouncedInput
+        type="text"
+        name="search"
+        debounceProps={{
+          subscribe: ({ value }) => {
+            refetch({
+              query: `${value.toLowerCase().trim()}%`,
+            });
+          },
+        }}
+      />
+      <div className="resultsContainer">
+        <div>
+          <div>
+            {(users) ? (
+              users.map((user) => (
+                <div>{user.fullName}</div>
+              ))
+            ) : null}
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-)
+  );
+};
 
-export default Results;
+const withData = graphql(searchTutors);
+
+export default withData(Results);

@@ -2,6 +2,7 @@ import {
   GraphQLInt,
   GraphQLObjectType,
   GraphQLString,
+  GraphQLList,
 } from 'graphql';
 
 import { capitalize } from 'lodash';
@@ -12,7 +13,7 @@ import {
   connectionFromArray,
 } from 'graphql-relay';
 
-import { SubjectConnection } from './Subject';
+import Subject, { SubjectConnection } from './Subject';
 import { FeedbackConnection } from './Feedback';
 
 const User = new GraphQLObjectType({
@@ -37,6 +38,14 @@ const User = new GraphQLObjectType({
     lastName: {
       type: GraphQLString,
       sqlColumn: 'last_name',
+    },
+    subjects: {
+      type: new GraphQLList(Subject),
+      junctionTable: 'subjects_users',
+      sqlJoins: [
+        (userTable, junctionTable, args) => `${userTable}.id = ${junctionTable}.user_id`,
+        (junctionTable, subjectTable, args) => `${junctionTable}.subject_id = ${subjectTable}.id`
+      ],
     },
     subjectConnection: {
       type: SubjectConnection,
