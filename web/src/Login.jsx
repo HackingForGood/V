@@ -6,15 +6,15 @@ class Login extends Component {
   render() {
     return (
       <div className='auth-container'>
-        <Header className="auth-header" as='h2'>Sign In To Tutor!</Header>
+        <Header className="auth-header" as='h2'>Sign In</Header>
         <Form className='login-form'>
           <Form.Field>
             <label>Email</label>
-            <Input placeholder='Email'/>
+            <Input placeholder='Email' type='email' required/>
           </Form.Field>
           <Form.Field>
             <label>Password</label>
-            <Input placeholder='Password'/>
+            <Input placeholder='Password' type="password" required/>
           </Form.Field>
           <Form.Field>
             <Checkbox label='Remember Me' />

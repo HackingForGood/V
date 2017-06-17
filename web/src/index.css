@@ -5,9 +5,13 @@ body {
   box-sizing: border-box;
 }
 
+.results.transition.visible {
+  display: none !important;
+}
+
 .ui.input {
   width: 80%;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .resultsContainer {
@@ -15,11 +19,19 @@ body {
   justify-content: center;
 }
 
+.welcome {
+  font-size: 20px;
+  color: grey;
+  text-align: justify;
+  margin-top: 20px;
+  padding-left: 10%;
+}
+
 .results {
   background: #f0f0f0;
   width: 80%;
   min-height: 800px;
-  margin-top: 60px;
+  margin-top: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
