@@ -1,16 +1,32 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./index.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
 
-ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route exact path="/" component={App} />
-    </Switch>
-  </Router>,
-  document.getElementById("root")
-);
-registerServiceWorker();
+import Routes from './Routes';
+
+const client = new ApolloClient({
+  networkInterface: createNetworkInterface({
+    uri: 'http:localhost:8888/graphql',
+  }),
+});
+
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <ApolloProvider client={client}>
+        <Component />
+      </ApolloProvider>
+    </AppContainer>,
+    document.getElementById('root'),
+  );
+};
+
+render(Routes);
+
+if (module.hot) {
+  module.hot.accept('./Routes', () => {
+    render(Routes);
+  });
+}

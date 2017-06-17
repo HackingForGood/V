@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Header } from 'semantic-ui-react';
-import './auth-form.css';
+
  
  //first name, last name, email, password, linkedin ?
 class Register extends Component {

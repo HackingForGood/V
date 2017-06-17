@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Checkbox, Input, Header } from 'semantic-ui-react';
-import './auth-form.css';
+
 class Login extends Component {
   
   render() {
