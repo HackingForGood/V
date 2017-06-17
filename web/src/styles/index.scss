@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.results.transition.visible {
+  display: none !important;
+}
+
+.ui.input {
+  width: 80%;
+  margin-top: 15px;
+}
+
+.resultsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome {
+  font-size: 20px;
+  color: grey;
+  text-align: justify;
+  margin-top: 20px;
+  padding-left: 10%;
+}
+
+.results {
+  background: #f0f0f0;
+  width: 80%;
+  min-height: 800px;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 60px;
+}
+
+.noResults {
+  text-align: center;
+  color: grey;
+}
