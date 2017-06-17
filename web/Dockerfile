@@ -5,4 +5,4 @@ MAINTAINER V
 COPY ./index.html /etc/nginx/html/index.html
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+EXPOSE 3000
