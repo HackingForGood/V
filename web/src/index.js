@@ -4,7 +4,12 @@ import { AppContainer } from 'react-hot-loader';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
-import Routes from './Routes';
+import "./styles/auth-form.scss";
+import "./styles/app.scss";
+import "./styles/index.scss";
+import "./styles/profile.scss"
+
+import Routes from './components/Routes';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -26,7 +31,7 @@ const render = (Component) => {
 render(Routes);
 
 if (module.hot) {
-  module.hot.accept('./Routes', () => {
+  module.hot.accept('./components/Routes', () => {
     render(Routes);
   });
 }

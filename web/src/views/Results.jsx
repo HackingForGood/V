@@ -1,11 +1,11 @@
 import React from "react";
 //import {  } from 'semantic-ui-react';
 
-const Results = ({ results }) => (
+const Results = ({ user }) => (
   <div className="resultsContainer">
     <div className="results">
     {
-      Object.keys(results).length != 0 ?
+      Object.keys(user).length != 0 ?
       <span className="noResults">
         hey
       </span> :

@@ -1,0 +1,25 @@
+.profileContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.userBox {
+  width: 80%;
+  height: 200px;
+  border: .5px solid lightgrey;
+  margin: 20px;
+}
+
+.userImageCont {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userImage {
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: #f0f0f0;
+}
