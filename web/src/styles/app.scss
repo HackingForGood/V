@@ -1,4 +1,7 @@
 $brand : #0cb0ac;
+$brand-white: #E0E1E2;
+$brand-offwhite: #f0f0f0;
+$brand-off-color: #abe4e3;
 
 .App {
   text-align: center;
@@ -16,6 +19,25 @@ $brand : #0cb0ac;
   color: white;
 }
 
+.tutorSearchResults {
+  background: white;
+  width: 100%;
+}
+
+.singleSubj {
+  background: $brand-white;
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+  &:hover {
+    &:before {
+      content: "+  "
+    }
+  }
+}
+
+
 .App-intro {
   font-size: large;
 }
@@ -25,8 +47,24 @@ $brand : #0cb0ac;
   to { transform: rotate(360deg); }
 }
 
+.subjects {
+  display: flex;
+}
+
+.subj {
+  background: $brand-off-color;
+  margin: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 10px;  
+}
+
 .brand {
   color: $brand;
+}
+
+.pageBreak {
+  margin: 30px;
 }
 
 .tutorContainer {

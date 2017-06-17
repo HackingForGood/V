@@ -7,8 +7,8 @@
   },
   "dependencies": {
     "apollo-client": "^1.4.2",
-    "lodash": "^4.17.4",
     "axios": "^0.16.2",
+    "lodash": "^4.17.4",
     "node-sass": "^4.5.3",
     "node-validator": "^0.1.27",
     "prop-types": "^15.5.10",

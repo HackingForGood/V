@@ -9,14 +9,16 @@ import Profile from "../views/Profile";
 
 const Routes = () => (
   <div>
-    <Nav />
     <Router>
-      <Switch>
-        <Route exact path="/" component={App} />
+      <div>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={App} />
         <Route exact path="/search" component={Search} />
-        <Route exact path="/user/:id" component={Profile} />
-        <Route exact path="/tutor" component={Tutor} />
-      </Switch>
+          <Route exact path="/user/:id" component={Profile} />
+          <Route exact path="/tutor" component={Tutor} />
+        </Switch>
+      </div>
     </Router>
   </div>
 );
