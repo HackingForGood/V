@@ -1,0 +1,13 @@
+query getUserFromId ($id: String) {
+    user (id: $id) {
+        fullName
+        email
+        subjectConnection {
+            edges {
+                node {
+                    name
+                }
+            }
+        }
+    }
+}

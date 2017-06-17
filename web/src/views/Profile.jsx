@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { graphql } from 'react-apollo';
+
+import getUserFromId from './_data/getUserFromId.graphql';
 
 class Profile extends Component {
   state = {
@@ -6,6 +9,7 @@ class Profile extends Component {
     lastname: 'Cushing',
   }
   render() {
+    const { user, loading } = this.props.data;
     return (
       <div className="profileContainer">
         <div className="userBox">
@@ -22,4 +26,12 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const withData = graphql(getUserFromId, {
+  options: (ownProps) => ({
+    variables: {
+      id: ownProps.match.params.id,
+    },
+  }),
+});
+
+export default withData(Profile);

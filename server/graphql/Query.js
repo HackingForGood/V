@@ -7,6 +7,7 @@ import {
 
 import jwt from 'jwt-simple';
 import joinMonster from 'join-monster';
+import sqlstring from 'sqlstring';
 
 import { knex } from '../database';
 import User from './User';
@@ -37,7 +38,18 @@ const QueryRoot = new GraphQLObjectType({
     users: {
       type: new GraphQLList(User),
       args: {
-        jwt: { type: GraphQLString },
+        query: {
+          type: GraphQLString,
+        },
+      },
+      where: (usersTable, { query }) => {
+        console.log(query);
+        if (!query) return null;
+        return `
+          ${usersTable}.first_name ILIKE ${sqlstring.escape(query)} OR
+          ${usersTable}.last_name ILIKE ${sqlstring.escape(query)} OR
+          ${usersTable}.email ILIKE ${sqlstring.escape(query)}
+        `;
       },
       resolve: (parent, args, context, resolveInfo) => {
         return joinMonster(resolveInfo, {}, sql => {
@@ -49,7 +61,7 @@ const QueryRoot = new GraphQLObjectType({
     user: {
       type: User,
       args: {
-        id: { type: GraphQLInt },
+        id: { type: GraphQLString },
       },
       where: (usersTable, { id }) =>
         (id) ? `${usersTable}.id = ${id}` : null,

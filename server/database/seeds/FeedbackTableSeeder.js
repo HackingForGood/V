@@ -9,7 +9,7 @@ exports.seed = async (knex) => {
   const feedback = [...new Array(AMT)].map(() => ({
     tutor_id: random(0, 200),
     author_id: random(0, 200),
-    subject_id: random(0, 200),
+    subject_id: random(0, 230),
     body: casual.sentences(3),
   }));
 
