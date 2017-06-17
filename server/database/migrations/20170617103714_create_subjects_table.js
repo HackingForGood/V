@@ -6,7 +6,7 @@ exports.up = knex =>
     table.timestamps(false, true);
 
     table.string('name', 100).notNullable();
-    table.string('name_slug', 100).notNullable();
+    table.string('name_slug', 100);
   });
 
 exports.down = knex =>

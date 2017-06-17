@@ -11,6 +11,8 @@ exports.up = knex =>
     table.string('first_name', 100);
     table.string('last_name', 100);
 
+    table.string('linkedin_url');
+
     table.integer('base_rate').unsigned();
   });
 
