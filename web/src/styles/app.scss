@@ -30,7 +30,13 @@ $brand-off-color: #abe4e3;
   padding: 15px;
   margin-top: 15px;
   cursor: pointer;
+  &:hover {
+    &:before {
+      content: "+  "
+    }
+  }
 }
+
 
 .App-intro {
   font-size: large;

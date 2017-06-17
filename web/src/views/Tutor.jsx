@@ -8,12 +8,21 @@ class Tutor extends Component {
     isActive: false,
   }
 
+  onClick = () => {
+    console.log('test');
+  }
+
+  skip = e => {
+    e.preventDefault()
+    window.location = '/profile/alex'
+  }
+
   onFocus = () => {
     this.setState({isActive: true})
   }
 
   onBlur = () => {
-    this.setState({isActive: false})
+    setTimeout(() =>{ this.setState({isActive: false}) }, 300);
   }
   render() {
     return (
@@ -27,8 +36,8 @@ class Tutor extends Component {
             <Input type="text" onFocus={this.onFocus} onBlur={this.onBlur}/>
           </Form.Field>
           {
-            this.state.isActive ? <div className="tutorSearchResults">
-            <div className="singleSubj">Math</div>
+            this.state.isActive ? <div className="tutorSearchResults" onFocus={this.onFocus} onBlur={this.onBlur}>
+            <div className="singleSubj" onClick={this.onClick}>Math</div>
             <div className="singleSubj">Science</div>
             <div className="singleSubj">Python</div>
             <div className="singleSubj">Node.js</div>
@@ -45,7 +54,7 @@ class Tutor extends Component {
             <Input type="text"/>
           </Form.Field>
           <Button type='submit'>Submit</Button>
-        <Button type='submit'>skip</Button>
+        <Button type='submit' onClick={this.skip}>skip</Button>
         </Form>
         </div>
       </div>

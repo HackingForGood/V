@@ -20,10 +20,12 @@ class Login extends Component {
       })
       .then(() => {
         this.setState({ loading: false });
-        //window.location = "/";
+        window.location = "/tutor";
       })
       .catch(err => {
+        this.setState({ loading: false });
         console.error('error => ', err)
+        window.location = "/tutor";
       });
   };
 
