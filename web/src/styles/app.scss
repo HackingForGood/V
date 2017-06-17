@@ -79,3 +79,39 @@ $brand-off-color: #abe4e3;
 .tutor {
   display: inline-block;
 }
+
+.searchResults {
+  display: flex;
+  justify-content: center;
+}
+
+.searchpageInput {
+  width: 800px;
+  .ui.icon.input {
+    width: 100%;
+  }
+}
+
+.resultsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: 1;
+  .userRow {
+    width: 100%;
+    .rowType {
+      flex: 1;
+    }
+    .feedbackSection {
+      width: 100%;
+      .feedbackBody {
+        flex: 1;
+      }
+    }
+    .subjectsSection {
+      width: 100%;
+      .subjectsBody {
+        flex: 1;
+      }
+    }
+  }
+}

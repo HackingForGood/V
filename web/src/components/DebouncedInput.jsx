@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-
+import { Search } from "semantic-ui-react";
 import Rx from 'rxjs';
 
 class DebouncedInput extends Component {
@@ -34,7 +34,7 @@ class DebouncedInput extends Component {
 
   render() {
     return (
-      <input
+      <Search
         type="text"
         ref={(ref) => { this.inputField = ref; }}
         {...omit({ ...this.props }, 'debounceProps')}
