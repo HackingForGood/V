@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  server:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/usr/src/app/
+      - /usr/src/app/node_modules
+    ports:
+      - 8888:8888
+    networks:
+      - external
+      - internal
+    command: npm run dev
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+
+  db:
+    image: "postgres:9.6"
+    ports:
+      - 5432:5432
+    volumes:
+      - database:/var/lib/postgresql/data
+    networks:
+      - internal
+
+  web:
+    build: web
+    ports:
+      - 3000:3000
+    networks:
+      - external
+
+networks:
+  external:
+  internal:
+
+volumes:
+  database:
