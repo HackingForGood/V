@@ -6,12 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "node_modules/nodemon/bin/nodemon.js server.js"
+    "dev": "node_modules/nodemon/bin/nodemon.js --legacy-watch --exec babel-node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-stage-2": "^6.24.1",
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
-    "nodemon": "^1.11.0"
+    "jwt-simple": "^0.5.1",
+    "knex": "^0.13.0",
+    "nodemon": "^1.11.0",
+    "pg": "^6.2.4"
   }
 }
