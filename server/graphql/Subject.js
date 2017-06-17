@@ -7,7 +7,7 @@ import {
   GraphQLString,
 } from 'graphql';
 
-import { UserConnection } from './User';
+import User, { UserConnection } from './User';
 
 import {
   connectionArgs,
@@ -23,6 +23,14 @@ const Subject = new GraphQLObjectType({
     name: {
       type: GraphQLString,
       sqlColumn: 'name',
+    },
+    users: {
+      type: new GraphQLList(User),
+      junctionTable: 'subjects_users',
+      sqlJoins: [
+        (subjectTable, junctionTable, args) => `${subjectTable}.id = ${junctionTable}.subject_id`,
+        (junctionTable, userTable, args) => `${junctionTable}.user_id = ${userTable}.id`
+      ],
     },
     userConnection: {
       type: UserConnection,

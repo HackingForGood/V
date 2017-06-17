@@ -14,7 +14,7 @@ import {
 } from 'graphql-relay';
 
 import Subject, { SubjectConnection } from './Subject';
-import { FeedbackConnection } from './Feedback';
+import Feedback, { FeedbackConnection } from './Feedback';
 
 const User = new GraphQLObjectType({
   name: 'User',
@@ -47,6 +47,12 @@ const User = new GraphQLObjectType({
         (junctionTable, subjectTable, args) => `${junctionTable}.subject_id = ${subjectTable}.id`
       ],
     },
+    feedbackReceived: {
+      type: new GraphQLList(Feedback),
+      junctionTable: 'subjects_users',
+      sqlJoin: (feedbackTable, userTable) =>
+        `${feedbackTable}.id = ${userTable}.tutor_id`,
+    },
     subjectConnection: {
       type: SubjectConnection,
       args: connectionArgs,
@@ -75,6 +81,16 @@ export const UserConnection = connectionDefinitions({
       type: GraphQLInt,
       resolve: ({ edges }) => edges.length,
     },
+  },
+  edgeFields: {
+    rate: {
+      type: GraphQLInt,
+      resolve: (something, anotherthing) => {
+        console.log(something);
+        console.log(anotherthing);
+        return null;
+      }
+    }
   },
 }).connectionType;
 

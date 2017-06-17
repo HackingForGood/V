@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from 'react-apollo';
-import { get } from 'lodash';
 
 import DebouncedInput from '../components/DebouncedInput';
 

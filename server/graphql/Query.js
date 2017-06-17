@@ -12,6 +12,7 @@ import sqlstring from 'sqlstring';
 import { knex } from '../database';
 import User from './User';
 import Viewer from './Viewer';
+import Subject from './Subject';
 
 const QueryRoot = new GraphQLObjectType({
   name: 'Query',
@@ -34,6 +35,28 @@ const QueryRoot = new GraphQLObjectType({
           return null;
         }
       },
+    },
+    subject: {
+      type: Subject,
+      args: {
+        query: {
+          type: GraphQLString,
+        },
+      },
+      where: (subject, { query }) => {
+        console.log(query);
+        if (!query) return null;
+        return `
+          ${subject}.name ILIKE ${sqlstring.escape(query)} OR
+          ${subject}.name_slug ILIKE ${sqlstring.escape(query)}
+        `;
+      },
+      resolve: (parent, args, context, resolveInfo) => {
+        return joinMonster(resolveInfo, {}, sql => {
+          console.log(sql);
+          return knex.raw(sql);
+        });
+      }
     },
     users: {
       type: new GraphQLList(User),
