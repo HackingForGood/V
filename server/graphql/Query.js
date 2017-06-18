@@ -37,7 +37,7 @@ const QueryRoot = new GraphQLObjectType({
       },
     },
     subject: {
-      type: Subject,
+      type: new GraphQLList(Subject),
       args: {
         query: {
           type: GraphQLString,
