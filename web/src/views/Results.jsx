@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from 'react-apollo';
-
 import DebouncedInput from '../components/DebouncedInput';
 
 import searchTutors from './_data/searchTutors.graphql';
@@ -8,10 +7,10 @@ import searchTutors from './_data/searchTutors.graphql';
 const Results = ({ data: { subject, refetch } }) => {
   const { users } = subject || {};
   return (
-    <div>
+    <div className="searchResults">
       <DebouncedInput
+        className="searchpageInput"
         type="text"
-        name="search"
         debounceProps={{
           subscribe: ({ value }) => {
             refetch({
@@ -24,8 +23,13 @@ const Results = ({ data: { subject, refetch } }) => {
         <div>
           <div>
             {(users) ? (
-              users.map((user, index) => (
-                <div key={index}>{user.fullName}</div>
+              users.map((user) => (
+                <div className ="userRow">
+                  <div className="rowType">{user.fullName}</div>
+                  <div className="rowType">{user.email}</div>
+                  <div className="rowType">{user.baseRate}</div>
+                  <div className="rowType">{user.email}</div>
+                </div>
               ))
             ) : null}
           </div>
